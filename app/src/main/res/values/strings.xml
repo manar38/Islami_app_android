@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Islami_App</string>
+    <string name="quran">quran</string>
+    <string name="hadith">hadith</string>
+    <string name="sebha">sebha</string>
+    <string name="radio">radio</string>
+    <string name="time">time</string>
+</resources>
