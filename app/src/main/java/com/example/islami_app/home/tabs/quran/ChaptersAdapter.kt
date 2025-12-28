@@ -30,6 +30,12 @@ class ChaptersAdapter(val chapters:List<Chapter>): RecyclerView.Adapter<Chapters
          holder.itemBinding.arabicTitleTv.text=chapter.titleAr
          holder.itemBinding.versesNumberTv.text=chapter.ayaNum
          holder.itemBinding.chapterIndexTv.text="${chapter.index+1}"
+         onItemClick?.let { onClick->
+             holder.itemView.setOnClickListener {
+                 onClick.onItemClick(position,chapter)
+             }
+
+         }
      }
 
      override fun getItemCount(): Int {
@@ -39,5 +45,9 @@ class ChaptersAdapter(val chapters:List<Chapter>): RecyclerView.Adapter<Chapters
      class ViewHolder(val itemBinding: ItemChapterBinding)
         :RecyclerView.ViewHolder(itemBinding.root){
 
+    }
+    var onItemClick:OnItemClick?=null
+    fun interface OnItemClick{
+        fun onItemClick(position: Int,chapter: Chapter)
     }
 }

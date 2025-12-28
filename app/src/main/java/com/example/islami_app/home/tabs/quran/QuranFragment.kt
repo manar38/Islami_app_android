@@ -1,10 +1,12 @@
 package com.example.islami_app.home.tabs.quran
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.islami_app.home.tabs.chapterDetails.ChapterDetailsActivity
 import com.example.islami_app.R
 import com.example.islami_app.databinding.FragmentQuranBinding
 import com.example.islami_app.home.tabs.AppContacts
@@ -28,6 +30,11 @@ class QuranFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
          adapter= ChaptersAdapter(chapters)
+        adapter.onItemClick= ChaptersAdapter.OnItemClick{position,chapter->
+            val intent=Intent(activity, ChapterDetailsActivity::class.java)
+            intent.putExtra(AppContacts.EXTRA.EXTRA_CHAPTER,chapter)
+            startActivity(intent)
+        }
         viewBinding.chapterRecycler.adapter=adapter
     }
     val chapters= AppContacts.getChapters()
