@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.islami_app.R
 import com.example.islami_app.databinding.ActivityMainBinding
-import com.example.islami_app.home.tabs.HadithFragment
+import com.example.islami_app.home.tabs.hadith.HadithFragment
 import com.example.islami_app.home.tabs.quran.QuranFragment
 import com.example.islami_app.home.tabs.RadioFragment
 import com.example.islami_app.home.tabs.TasbehFragment
